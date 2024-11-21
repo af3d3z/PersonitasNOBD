@@ -1,0 +1,64 @@
+﻿Capa ENT:
+	class Persona:
+		+ ID 
+		+ Nombre
+		+ Apellidos
+		+ Foto
+		+ FechaNacimiento
+		+ IDDepartamento
+
+	class Departamento
+		+ ID
+		+ Nombre
+
+Capa DAL:
+	class Listados:
+		+ List<Persona> ListadoPersonasDAL()
+		+ List<Departamento> ListadoDepartamentosDAL()
+
+	class ManejadoraPersona:
+		+ GetPersona(int id)
+		+ AgregarPersona(Persona persona)
+		+ EditarPersona(Persona persona)
+		+ BorrarPersona(int id)
+
+	class ManejadoraDepartamento:
+		+ GetDepartamento(int id)
+		+ AgregarDepartamento(Departamento depto)
+		+ EditarDepartamento(Departamento depto)
+		+ BorrarPersona(int id)
+
+Capa BL:
+	class ListadosBL:
+		+ static List<Persona> ListadoPersonasBL()
+		+ static List<Departamento> ListadoDepartamentosBL()
+
+	class ManejadoraPersonaBL:
+		+ static GetPersonaBL(int id)
+		+ static AgregarPersonaBL(Persona persona)
+		+ static EditarPersonaBL(Persona persona)
+		+ static BorrarPersonaBL(int id)
+
+	class ManejadoraDepartamento:
+		+ static GetDepartamentoBL(int id)
+		+ static AgregarDepartamentoBL(Departamento depto)
+		+ static EditarDepartamentoBL(Departamento depto)
+		+ static BorrarDepartamentoBL(Departamento depto)
+
+Capa UI:
+	ASP:
+		ViewModels:
+			class PersonasDepartamentoVM: Persona
+				+ string Departamento
+
+			class PersonaListadoDepartamentoVM
+				+ Persona Persona
+				+ List<Departamento> Departamentos
+
+Controllers:
+	PersonaController:
+		Index:
+			return View(List<PersonaDepartamentoVM>)
+
+		Details/{x}:
+			return View(PersonaDepartamentoVM)
