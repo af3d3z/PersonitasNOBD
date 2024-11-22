@@ -17,17 +17,8 @@ namespace DAL
         /// <param name="listado"></param>
         /// <returns></returns>
         public static Persona GetPersona(int id) {
-            int contador = 0;
-            bool encontrado = false;
             Persona persona = new Persona();
-            List<Persona> listaPersonas = Listados.ObtenerPersonas();
-            while (contador < listaPersonas.Count && !encontrado) {
-                persona = listaPersonas[contador];
-                if (persona.Id == id) {
-                    encontrado = true;
-                }
-                contador++;
-            }
+            persona = Listados.ListaPersonas.Find(p => p.Id == id);
 
             return persona;
         }
@@ -61,6 +52,17 @@ namespace DAL
             }
 
             return encontrado;
+        }
+
+        /// <summary>
+        /// Elimina una persona del listado de la capa DAL
+        /// PRE: debe tener al menos el ID
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns></returns>
+        public static bool EliminarPersona(Persona persona) {
+            Persona personaBusqueda = Listados.ListaPersonas.Find(p => p.Id == persona.Id);
+            return Listados.ListaPersonas.Remove(personaBusqueda);
         }
     }
 }

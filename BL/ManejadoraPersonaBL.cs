@@ -30,8 +30,17 @@ namespace BL
             ManejadoraPersona.AgregarPersona(persona);
         }
 
-        public static bool EditarPersona(Persona persona) { 
+        /// <summary>
+        /// Edita una persona de la lista de la capa DAL
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns></returns>
+        public static bool EditarPersonaBL(Persona persona) { 
             return ManejadoraPersona.EditarPersona(persona);
+        }
+
+        public static bool EliminarPersonaBL(Persona persona) {
+            return ManejadoraPersona.EliminarPersona(persona);
         }
     }
 }

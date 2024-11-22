@@ -30,7 +30,8 @@ namespace Personitas.Controllers
         // GET: PersonaController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            PersonaDepartamentoVM personaDepartamento = new PersonaDepartamentoVM(ManejadoraPersonaBL.GetPersonaBL(id));
+            return View(personaDepartamento);
         }
 
         // GET: PersonaController/Create
@@ -71,7 +72,7 @@ namespace Personitas.Controllers
         {
             try
             {
-                if (ManejadoraPersonaBL.EditarPersona(persona))
+                if (ManejadoraPersonaBL.EditarPersonaBL(persona))
                 {
                     return RedirectToAction(nameof(Index));
                 }
@@ -88,22 +89,29 @@ namespace Personitas.Controllers
         // GET: PersonaController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            PersonaDepartamentoVM personaDepartamentos = new PersonaDepartamentoVM(ManejadoraPersonaBL.GetPersonaBL(id));
+            return View(personaDepartamentos);
         }
 
         // POST: PersonaController/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletePost(int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                bool eliminado = ManejadoraPersonaBL.EliminarPersonaBL(new Persona(ManejadoraPersonaBL.GetPersonaBL(id)));
+                if (!eliminado) {
+                    return View();
+                }
             }
             catch
             {
                 return View();
             }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
