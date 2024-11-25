@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:PersonitasMAUI.Models.ViewModels"
+             x:Class="PersonitasMAUI.Views.MainPage">
+
+    <ContentPage.BindingContext>
+        <vmodel:ListaPersonasConNombreDpto />
+    </ContentPage.BindingContext>
+
+    <!--<ContentPage.MenuBarItems>
+        <MenuBarItem Text="Personas">
+            <MenuFlyoutItem Text="Borrar" Command="{Binding BtnEliminarCommand}"></MenuFlyoutItem>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>-->
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <HorizontalStackLayout Spacing="5">
+                <Button BackgroundColor="Green" ImageSource="add.png"></Button>
+                <Button Command="{Binding BtnEliminarCommand}" Background="Red" ImageSource="trash.png"></Button>
+            </HorizontalStackLayout>
+            <ListView ItemsSource="{Binding ListadoPersonasNombreDepartamento}" SelectedItem="{Binding PersonaSeleccionada}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="{Binding Nombre}"></Label>
+                                    <Label Text="{Binding Apellidos}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
