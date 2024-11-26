@@ -31,28 +31,28 @@ namespace DAL
         /// <returns>List<Persona> Listado de personas inicial</returns>
         public static List<Persona> ObtenerPersonas() { 
             List<Persona> listadoPersonas = new List<Persona>();
-            listadoPersonas.Add(new Persona(1, "Antonio", "Morilla", "No disponible", new DateOnly(2000, 06, 03), 3));
-            listadoPersonas.Add(new Persona(2, "María", "González", "No disponible", new DateOnly(1995, 02, 14), 4));
-            listadoPersonas.Add(new Persona(3, "Luis", "Pérez", "No disponible", new DateOnly(1990, 11, 21), 2));
-            listadoPersonas.Add(new Persona(4, "Laura", "Sánchez", "No disponible", new DateOnly(1985, 07, 10), 5));
-            listadoPersonas.Add(new Persona(5, "Carlos", "Rodríguez", "No disponible", new DateOnly(2001, 03, 30), 1));
-            listadoPersonas.Add(new Persona(6, "Ana", "Martínez", "No disponible", new DateOnly(1998, 09, 18), 3));
-            listadoPersonas.Add(new Persona(7, "David", "Hernández", "No disponible", new DateOnly(1992, 12, 25), 2));
-            listadoPersonas.Add(new Persona(8, "Carmen", "López", "No disponible", new DateOnly(1987, 04, 16), 4));
-            listadoPersonas.Add(new Persona(9, "José", "García", "No disponible", new DateOnly(2000, 01, 07), 1));
-            listadoPersonas.Add(new Persona(10, "Raquel", "Martín", "No disponible", new DateOnly(1993, 10, 22), 5));
-            listadoPersonas.Add(new Persona(11, "Pedro", "Ferrer", "No disponible", new DateOnly(1980, 06, 15), 3));
-            listadoPersonas.Add(new Persona(12, "Isabel", "Córdoba", "No disponible", new DateOnly(1996, 08, 04), 4));
-            listadoPersonas.Add(new Persona(13, "Francisco", "Jiménez", "No disponible", new DateOnly(2002, 12, 30), 2));
-            listadoPersonas.Add(new Persona(14, "Elena", "Álvarez", "No disponible", new DateOnly(1988, 05, 02), 5));
-            listadoPersonas.Add(new Persona(15, "Javier", "Ramírez", "No disponible", new DateOnly(1997, 11, 19), 1));
-            listadoPersonas.Add(new Persona(16, "Sara", "Vázquez", "No disponible", new DateOnly(1994, 09, 05), 3));
-            listadoPersonas.Add(new Persona(17, "Manuel", "Moreno", "No disponible", new DateOnly(1991, 03, 12), 2));
-            listadoPersonas.Add(new Persona(18, "Marta", "Ruiz", "No disponible", new DateOnly(1986, 01, 20), 4));
-            listadoPersonas.Add(new Persona(19, "Antonio", "Torres", "No disponible", new DateOnly(2003, 10, 15), 5));
-            listadoPersonas.Add(new Persona(20, "José", "Fernández", "No disponible", new DateOnly(1999, 04, 28), 1));
-            listadoPersonas.Add(new Persona(21, "Patricia", "Gutiérrez", "No disponible", new DateOnly(1990, 07, 11), 3));
-            listadoPersonas.Add(new Persona(22, "Ricardo", "Gómez", "No disponible", new DateOnly(1995, 01, 17), 2));
+            listadoPersonas.Add(new Persona(1, "Antonio", "Morilla", "No disponible", new DateTime(2000, 06, 03), 3));
+            listadoPersonas.Add(new Persona(2, "María", "González", "No disponible", new DateTime(1995, 02, 14), 4));
+            listadoPersonas.Add(new Persona(3, "Luis", "Pérez", "No disponible", new DateTime(1990, 11, 21), 2));
+            listadoPersonas.Add(new Persona(4, "Laura", "Sánchez", "No disponible", new DateTime(1985, 07, 10), 5));
+            listadoPersonas.Add(new Persona(5, "Carlos", "Rodríguez", "No disponible", new DateTime(2001, 03, 30), 1));
+            listadoPersonas.Add(new Persona(6, "Ana", "Martínez", "No disponible", new DateTime(1998, 09, 18), 3));
+            listadoPersonas.Add(new Persona(7, "David", "Hernández", "No disponible", new DateTime(1992, 12, 25), 2));
+            listadoPersonas.Add(new Persona(8, "Carmen", "López", "No disponible", new DateTime(1987, 04, 16), 4));
+            listadoPersonas.Add(new Persona(9, "José", "García", "No disponible", new DateTime(2000, 01, 07), 1));
+            listadoPersonas.Add(new Persona(10, "Raquel", "Martín", "No disponible", new DateTime(1993, 10, 22), 5));
+            listadoPersonas.Add(new Persona(11, "Pedro", "Ferrer", "No disponible", new DateTime(1980, 06, 15), 3));
+            listadoPersonas.Add(new Persona(12, "Isabel", "Córdoba", "No disponible", new DateTime(1996, 08, 04), 4));
+            listadoPersonas.Add(new Persona(13, "Francisco", "Jiménez", "No disponible", new DateTime(2002, 12, 30), 2));
+            listadoPersonas.Add(new Persona(14, "Elena", "Álvarez", "No disponible", new DateTime(1988, 05, 02), 5));
+            listadoPersonas.Add(new Persona(15, "Javier", "Ramírez", "No disponible", new DateTime(1997, 11, 19), 1));
+            listadoPersonas.Add(new Persona(16, "Sara", "Vázquez", "No disponible", new DateTime(1994, 09, 05), 3));
+            listadoPersonas.Add(new Persona(17, "Manuel", "Moreno", "No disponible", new DateTime(1991, 03, 12), 2));
+            listadoPersonas.Add(new Persona(18, "Marta", "Ruiz", "No disponible", new DateTime(1986, 01, 20), 4));
+            listadoPersonas.Add(new Persona(19, "Antonio", "Torres", "No disponible", new DateTime(2003, 10, 15), 5));
+            listadoPersonas.Add(new Persona(20, "José", "Fernández", "No disponible", new DateTime(1999, 04, 28), 1));
+            listadoPersonas.Add(new Persona(21, "Patricia", "Gutiérrez", "No disponible", new DateTime(1990, 07, 11), 3));
+            listadoPersonas.Add(new Persona(22, "Ricardo", "Gómez", "No disponible", new DateTime(1995, 01, 17), 2));
             return listadoPersonas;
         }
 

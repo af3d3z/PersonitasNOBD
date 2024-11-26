@@ -1,6 +1,7 @@
 ﻿using ENT;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace PersonitasMAUI.Models
         public PersonaConNombreDepartamento() { }
 
         public PersonaConNombreDepartamento(Persona persona, List<Departamento> departamentos) : base(persona) {
-            Departamento depto = BL.ListadosBL.GetListaDepartamentosBL().Find(dpto => dpto.ID == persona.IDDepartamento);
+            Departamento depto = BL.ListadosBL.GetListaDepartamentosBL().Where(dpto => dpto.ID == persona.IDDepartamento).FirstOrDefault();
             if (depto != null) {
                 this.NombreDepartamento = depto.Nombre;
             }

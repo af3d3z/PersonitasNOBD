@@ -12,4 +12,8 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent 
+        Title="Agregar"
+        ContentTemplate="{DataTemplate local:Agregado}"
+        Route="Agregar"/>
 </Shell>

@@ -1,6 +1,7 @@
 ﻿using ENT;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public static Persona GetPersona(int id) {
             Persona persona = new Persona();
-            persona = Listados.ListaPersonas.Find(p => p.Id == id);
+            persona = Listados.ListaPersonas.Where(p => p.Id == id).FirstOrDefault();
 
             return persona;
         }
@@ -61,7 +62,7 @@ namespace DAL
         /// <param name="persona"></param>
         /// <returns></returns>
         public static bool EliminarPersona(Persona persona) {
-            Persona personaBusqueda = Listados.ListaPersonas.Find(p => p.Id == persona.Id);
+            Persona personaBusqueda = Listados.ListaPersonas.Where(p => p.Id == persona.Id).FirstOrDefault();
             return Listados.ListaPersonas.Remove(personaBusqueda);
         }
     }

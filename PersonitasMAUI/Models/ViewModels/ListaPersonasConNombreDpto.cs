@@ -18,12 +18,12 @@ namespace PersonitasMAUI.Models.ViewModels
         private DelegateCommand? _btnEliminarCommand;
         private DelegateCommand? _btnAgregarCommand;
         private PersonaConNombreDepartamento _personaSeleccionada = new PersonaConNombreDepartamento();
-        private ObservableCollection<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new ObservableCollection<PersonaConNombreDepartamento>();
+        private List<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new List<PersonaConNombreDepartamento>();
         #endregion
 
 
         #region properties
-        public ObservableCollection<PersonaConNombreDepartamento> ListadoPersonasNombreDepartamento {
+        public List<PersonaConNombreDepartamento> ListadoPersonasNombreDepartamento {
             get {
                 return _listadoPersonasNombreDepartamento;
             }
@@ -60,7 +60,7 @@ namespace PersonitasMAUI.Models.ViewModels
             this._btnAgregarCommand = new DelegateCommand(btnAgregarCommand_Execute);
         }
 
-        public ListaPersonasConNombreDpto(int idPersonaSeleccionada) {
+        public void ActualizarLista() {
             List<Departamento> departamentos = BL.ListadosBL.GetListaDepartamentosBL();
             List<Persona> personas = BL.ListadosBL.GetListaPersonasBL();
 
@@ -68,9 +68,10 @@ namespace PersonitasMAUI.Models.ViewModels
             {
                 this._listadoPersonasNombreDepartamento.Add(new PersonaConNombreDepartamento(persona, departamentos));
             }
+        }
 
+        public ListaPersonasConNombreDpto(int idPersonaSeleccionada) {
             this._btnEliminarCommand = new DelegateCommand(btnEliminarCommand_Execute, btnEliminarCommand_CanExecute);
-
             this.PersonaSeleccionada = this._listadoPersonasNombreDepartamento.Where(per => per.Id == idPersonaSeleccionada).FirstOrDefault();
         }
 
@@ -99,7 +100,7 @@ namespace PersonitasMAUI.Models.ViewModels
         /// Redirige al usuario a la vista de agregado
         /// </summary>
         private async void btnAgregarCommand_Execute() {
-            await Shell.Current.GoToAsync("mecagoendios");
+            await Shell.Current.GoToAsync("//Agregar");
         }
         #endregion
     }

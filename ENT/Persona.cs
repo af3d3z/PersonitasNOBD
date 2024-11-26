@@ -14,7 +14,7 @@ namespace ENT
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Foto { get; set; }
-        public DateOnly FechaNacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public int IDDepartamento { get; set; }
         #endregion
 
@@ -33,7 +33,7 @@ namespace ENT
         /// <param name="Foto"></param>
         /// <param name="fechaNac"></param>
         /// <param name="idDepartamento"></param>
-        public Persona(int id, string nombre, string Apellidos, string Foto, DateOnly fechaNac, int idDepartamento) {
+        public Persona(int id, string nombre, string Apellidos, string Foto, DateTime fechaNac, int idDepartamento) {
             this.Id = id;
             this.Nombre = nombre;
             this.Apellidos = Apellidos;

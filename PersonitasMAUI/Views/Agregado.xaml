@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonitasMAUI.Views"
+             xmlns:vmodel="clr-namespace:PersonitasMAUI.Models.ViewModels"
+             x:Class="PersonitasMAUI.Views.Agregado"
              Title="Agregado">
-    <VerticalStackLayout>
+    
+    <ContentPage.BindingContext>
+        <vmodel:AgregadoVM/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Padding="20">
         <Label Text="Nombre:"></Label>
-        <Entry></Entry>
+        <Entry Text="{Binding Nombre}"></Entry>
         <Label Text="Apellidos:"></Label>
-        <Entry></Entry>
+        <Entry Text="{Binding Apellidos}"></Entry>
         <Label Text="Foto:"></Label>
-        <Entry></Entry>
+        <Entry Text="{Binding Foto}"></Entry>
         <Label Text="Fecha de nacimiento:"></Label>
-        <DatePicker></DatePicker>
-        <CollectionView></CollectionView>
+        <DatePicker Date="{Binding FechaNacimiento}" Format="dd-MM-yyyy"></DatePicker>
+        <Label Text="Departamento al que pertenece:"></Label>
+        <ListView ItemsSource="{Binding ListaDepartamentos}" SelectedItem="{Binding DepartamentoSeleccionado}" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Nombre}"></Label>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HorizontalStackLayout>
+            <Button Command="{Binding VolverBtn}" BackgroundColor="Blue" ImageSource="arrow_left.png"></Button>
+            <Button Command="{Binding AgregarBtn}" BackgroundColor="Green" ImageSource="add.png"></Button>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

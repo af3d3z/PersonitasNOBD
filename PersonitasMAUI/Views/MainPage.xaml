@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Appearing="ContentPage_Appearing"
              xmlns:vmodel="clr-namespace:PersonitasMAUI.Models.ViewModels"
              x:Class="PersonitasMAUI.Views.MainPage">
 
@@ -19,7 +20,7 @@
             Padding="30,0"
             Spacing="25">
             <HorizontalStackLayout Spacing="5">
-                <Button BackgroundColor="Green" ImageSource="add.png"></Button>
+                <Button Command="{Binding BtnAgregarCommand}" BackgroundColor="Green" ImageSource="add.png"></Button>
                 <Button Command="{Binding BtnEliminarCommand}" Background="Red" ImageSource="trash.png"></Button>
             </HorizontalStackLayout>
             <ListView ItemsSource="{Binding ListadoPersonasNombreDepartamento}" SelectedItem="{Binding PersonaSeleccionada}">
