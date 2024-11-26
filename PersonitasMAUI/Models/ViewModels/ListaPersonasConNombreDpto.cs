@@ -2,6 +2,7 @@
 using DAL;
 using ENT;
 using PersonitasMAUI.Models.Utilidades;
+using PersonitasMAUI.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,14 +10,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 
 namespace PersonitasMAUI.Models.ViewModels
 {
-    public class ListaPersonasConNombreDpto: PersonitasMAUI.Models.Utilidades.clsVMBase
+    public class ListaPersonasConNombreDpto : PersonitasMAUI.Models.Utilidades.clsVMBase
     {
         #region atributos
         private DelegateCommand? _btnEliminarCommand;
         private DelegateCommand? _btnAgregarCommand;
+        private DelegateCommand? _btnDetallesCommand;
         private PersonaConNombreDepartamento _personaSeleccionada = new PersonaConNombreDepartamento();
         private List<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new List<PersonaConNombreDepartamento>();
         #endregion
@@ -28,7 +31,7 @@ namespace PersonitasMAUI.Models.ViewModels
                 return _listadoPersonasNombreDepartamento;
             }
         }
-
+        public DelegateCommand BtnDetallesCommand {get{ return _btnDetallesCommand; } }
         public DelegateCommand BtnEliminarCommand { get { return _btnEliminarCommand; } }
         
         public DelegateCommand BtnAgregarCommand { get { return _btnAgregarCommand; } }
@@ -58,6 +61,7 @@ namespace PersonitasMAUI.Models.ViewModels
 
             this._btnEliminarCommand = new DelegateCommand(btnEliminarCommand_Execute, btnEliminarCommand_CanExecute);
             this._btnAgregarCommand = new DelegateCommand(btnAgregarCommand_Execute);
+            this._btnDetallesCommand = new DelegateCommand(btnDetallesCommand_Execute);
         }
 
         public void ActualizarLista() {
@@ -94,6 +98,10 @@ namespace PersonitasMAUI.Models.ViewModels
         /// </summary>
         private void btnEliminarCommand_Execute() {
             this._listadoPersonasNombreDepartamento.Remove(this._personaSeleccionada);
+        }
+
+        private async void btnDetallesCommand_Execute() {
+            await Application.Current.MainPage.Navigation.PushAsync(new Detalles(_personaSeleccionada));
         }
 
         /// <summary>

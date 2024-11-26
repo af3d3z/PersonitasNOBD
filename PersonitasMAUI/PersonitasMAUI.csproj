@@ -74,13 +74,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Agregado.xaml.cs">
-	    <DependentUpon>Agregado.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\Agregado.xaml">
+	  <MauiXaml Update="Views\Agregar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Detalles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

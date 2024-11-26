@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PersonitasMAUI.Models.ViewModels
 {
-    public class AgregadoVM: Persona
+    public class AgregarVM: Persona
     {
         private List<Departamento> _listaDepartamentos;
         private Departamento _departamentoSeleccionado;
@@ -26,7 +26,7 @@ namespace PersonitasMAUI.Models.ViewModels
         public DelegateCommand VolverBtn { get { return this._volverBtn; } }
 
 
-        public AgregadoVM() {
+        public AgregarVM() {
             this._listaDepartamentos = BL.ListadosBL.GetListaDepartamentosBL();
             this._departamentoSeleccionado = _listaDepartamentos.FirstOrDefault();
             this._volverBtn = new DelegateCommand(btnVolverCommand_Execute);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonitasMAUI.Views.Detalles"
+             Title="Detalles">
+
+    <VerticalStackLayout>
+        <Label Text="Nombre:"></Label>
+        <Label Text="{Binding Nombre}"></Label>
+        <Label Text="Apellidos:"></Label>
+        <Label Text="{Binding Apellidos}"></Label>
+        <Label Text="Foto:"></Label>
+        <Image Source="{Binding Foto}"></Image>
+        <Label Text="Dirección:"></Label>
+        <Label Text="{Binding Direccion}"></Label>
+        <Label Text="Fecha de nacimiento: "></Label>
+        <Label Text="{Binding FechaNacimiento}"></Label>
+        <Label Text="Departamento: "></Label>
+        <Label Text="{Binding NombreDepartamento}"></Label>
+    </VerticalStackLayout>
+</ContentPage>
