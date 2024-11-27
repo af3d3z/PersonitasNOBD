@@ -4,9 +4,9 @@ namespace PersonitasMAUI.Views;
 
 public partial class Detalles : ContentPage
 {
-	public Detalles(PersonaConNombreDepartamento personaConNombreDepartamento)
+	public Detalles(int idPersona)
 	{
 		InitializeComponent();
-		BindingContext = personaConNombreDepartamento;
+		BindingContext = new PersonaConNombreDepartamento(BL.ManejadoraPersonaBL.GetPersonaBL(idPersona));
 	}
 }

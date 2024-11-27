@@ -5,17 +5,18 @@
              Title="Detalles">
 
     <VerticalStackLayout>
-        <Label Text="Nombre:"></Label>
-        <Label Text="{Binding Nombre}"></Label>
-        <Label Text="Apellidos:"></Label>
-        <Label Text="{Binding Apellidos}"></Label>
-        <Label Text="Foto:"></Label>
-        <Image Source="{Binding Foto}"></Image>
-        <Label Text="Dirección:"></Label>
-        <Label Text="{Binding Direccion}"></Label>
-        <Label Text="Fecha de nacimiento: "></Label>
-        <Label Text="{Binding FechaNacimiento}"></Label>
-        <Label Text="Departamento: "></Label>
-        <Label Text="{Binding NombreDepartamento}"></Label>
+        <HorizontalStackLayout Spacing="5">
+            <Label Text="{Binding Nombre}" FontSize="20"></Label>
+            <Label Text="{Binding Apellidos}" FontSize="20"></Label>
+        </HorizontalStackLayout>
+        <Image Source="{Binding Foto}" MaximumHeightRequest="130" MinimumHeightRequest="130" HorizontalOptions="Start"></Image>
+        <HorizontalStackLayout>
+            <Label Text="Fecha de nacimiento: " FontSize="20"></Label>
+            <Label Text="{Binding FechaNacimiento}" FontSize="20"></Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="5">
+            <Label Text="Departamento: " FontSize="20"></Label>
+            <Label Text="{Binding NombreDepartamento}" FontSize="20"></Label>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

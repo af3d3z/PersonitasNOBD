@@ -14,6 +14,13 @@ namespace PersonitasMAUI.Models
 
         public PersonaConNombreDepartamento() { }
 
+        public PersonaConNombreDepartamento(Persona persona): base(persona) {
+            Departamento depto = BL.ListadosBL.GetListaDepartamentosBL().Where(dpto => dpto.ID == persona.IDDepartamento).FirstOrDefault();
+            if (depto != null) {
+                this.NombreDepartamento = depto.Nombre;
+            }
+        }
+
         public PersonaConNombreDepartamento(Persona persona, List<Departamento> departamentos) : base(persona) {
             Departamento depto = BL.ListadosBL.GetListaDepartamentosBL().Where(dpto => dpto.ID == persona.IDDepartamento).FirstOrDefault();
             if (depto != null) {

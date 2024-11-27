@@ -28,12 +28,16 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <VerticalStackLayout>
-                                <HorizontalStackLayout Spacing="5">
-                                    <Label Text="{Binding Nombre}"></Label>
-                                    <Label Text="{Binding Apellidos}"/>
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Image Source="{Binding Foto}" MaximumHeightRequest="100" VerticalOptions="Center" HorizontalOptions="Start" Margin="10"></Image>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                        <Label Text="{Binding Nombre}" FontSize="20"></Label>
+                                        <Label Text="{Binding Apellidos}" FontSize="20"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding NombreDepartamento}" FontSize="18"></Label>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

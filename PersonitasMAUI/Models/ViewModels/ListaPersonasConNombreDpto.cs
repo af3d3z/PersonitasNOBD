@@ -21,12 +21,12 @@ namespace PersonitasMAUI.Models.ViewModels
         private DelegateCommand? _btnAgregarCommand;
         private DelegateCommand? _btnDetallesCommand;
         private PersonaConNombreDepartamento _personaSeleccionada = new PersonaConNombreDepartamento();
-        private List<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new List<PersonaConNombreDepartamento>();
+        private ObservableCollection<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new ObservableCollection<PersonaConNombreDepartamento>();
         #endregion
 
 
         #region properties
-        public List<PersonaConNombreDepartamento> ListadoPersonasNombreDepartamento {
+        public ObservableCollection<PersonaConNombreDepartamento> ListadoPersonasNombreDepartamento {
             get {
                 return _listadoPersonasNombreDepartamento;
             }
@@ -42,9 +42,7 @@ namespace PersonitasMAUI.Models.ViewModels
             set {
                 _personaSeleccionada = value;
                 _btnEliminarCommand?.RaiseCanExecuteChanged();
-                Console.WriteLine("Potato");
                 NotifyPropertyChanged("PersonaSeleccionada");
-               
             }
         }
         #endregion
@@ -67,6 +65,7 @@ namespace PersonitasMAUI.Models.ViewModels
         public void ActualizarLista() {
             List<Departamento> departamentos = BL.ListadosBL.GetListaDepartamentosBL();
             List<Persona> personas = BL.ListadosBL.GetListaPersonasBL();
+            this._listadoPersonasNombreDepartamento.Clear();
 
             foreach (Persona persona in personas)
             {
@@ -100,8 +99,11 @@ namespace PersonitasMAUI.Models.ViewModels
             this._listadoPersonasNombreDepartamento.Remove(this._personaSeleccionada);
         }
 
+        /// <summary>
+        /// Muestra los detalles de la persona seleccionada
+        /// </summary>
         private async void btnDetallesCommand_Execute() {
-            await Application.Current.MainPage.Navigation.PushAsync(new Detalles(_personaSeleccionada));
+            await Application.Current.MainPage.Navigation.PushAsync(new Detalles(_personaSeleccionada.Id));
         }
 
         /// <summary>

@@ -14,8 +14,8 @@ namespace PersonitasMAUI.Views
         {
 
             base.OnAppearing();
-            /*ListaPersonasConNombreDpto vm = BindingContext as ListaPersonasConNombreDpto;
-            vm.ActualizarLista();*/
+            ListaPersonasConNombreDpto vm = BindingContext as ListaPersonasConNombreDpto;
+            vm.ActualizarLista();
         }
     }
 
