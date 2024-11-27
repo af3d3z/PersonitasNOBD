@@ -59,6 +59,8 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\add.png" />
 	  <None Remove="Resources\Images\arrow_left.png" />
+	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\eye.png" />
 	  <None Remove="Resources\Images\trash.png" />
 	</ItemGroup>
 
@@ -78,6 +80,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Detalles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Editar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

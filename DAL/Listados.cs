@@ -66,6 +66,7 @@ namespace DAL
             listadoDepartamentos.Add(new Departamento(1, "Contabilidad"));
             listadoDepartamentos.Add(new Departamento(2, "Marketing"));
             listadoDepartamentos.Add(new Departamento(3, "Finanzas"));
+            listadoDepartamentos.Add(new Departamento(4, "Combate cuerpo-a-cuerpo"));
             listadoDepartamentos.Add(new Departamento(5, "Informática"));
             listadoDepartamentos.Add(new Departamento(6, "Recursos Humanos"));
             return listadoDepartamentos;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonitasMAUI.Views.Editar"
+             Title="Editar">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Nombre:" VerticalOptions="Center"></Label>
+            <Entry Text="{Binding Nombre}" MinimumWidthRequest="70" VerticalOptions="Center"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Apellidos:" VerticalOptions="Center"></Label>
+            <Entry Text="{Binding Apellidos}" MinimumWidthRequest="70" VerticalOptions="Center"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="URL Foto:" VerticalOptions="Center"></Label>
+            <Entry Text="{Binding Foto}" MinimumWidthRequest="70" VerticalOptions="Center"></Entry>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Fecha de nacimiento:" VerticalOptions="Center"></Label>
+            <Entry Text="{Binding FechaNacimiento}" MinimumWidthRequest="70" VerticalOptions="Center"></Entry>
+        </HorizontalStackLayout>
+        <ListView ItemsSource="{Binding ListaDepartamentos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding NombreDepartamento}"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

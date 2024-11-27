@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Appearing="ContentPage_Appearing"
              xmlns:vmodel="clr-namespace:PersonitasMAUI.Models.ViewModels"
-             x:Class="PersonitasMAUI.Views.MainPage">
+             x:Class="PersonitasMAUI.Views.MainPage"
+             Title="Personas">
 
     <ContentPage.BindingContext>
         <vmodel:ListaPersonasConNombreDpto />
@@ -21,8 +22,9 @@
             Spacing="25">
             <HorizontalStackLayout Spacing="5">
                 <Button Command="{Binding BtnAgregarCommand}" BackgroundColor="Green" ImageSource="add.png"></Button>
-                <Button Command="{Binding BtnEliminarCommand}" Background="Red" ImageSource="trash.png"></Button>
+                <Button Command="{Binding BtnEliminarCommand}" BackgroundColor="Red" ImageSource="trash.png"></Button>
                 <Button Command="{Binding BtnDetallesCommand}" BackgroundColor="Blue" ImageSource="eye.png"></Button>
+                <Button Command="{Binding BtnEditarCommand}" BackgroundColor="Purple" ImageSource="edit.png"/>
             </HorizontalStackLayout>
             <ListView ItemsSource="{Binding ListadoPersonasNombreDepartamento}" SelectedItem="{Binding PersonaSeleccionada}">
                 <ListView.ItemTemplate>

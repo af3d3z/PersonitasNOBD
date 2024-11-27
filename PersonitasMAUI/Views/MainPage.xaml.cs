@@ -12,7 +12,6 @@ namespace PersonitasMAUI.Views
 
         private void ContentPage_Appearing(object sender, EventArgs e)
         {
-
             base.OnAppearing();
             ListaPersonasConNombreDpto vm = BindingContext as ListaPersonasConNombreDpto;
             vm.ActualizarLista();

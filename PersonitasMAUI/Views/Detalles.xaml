@@ -10,7 +10,7 @@
             <Label Text="{Binding Apellidos}" FontSize="20"></Label>
         </HorizontalStackLayout>
         <Image Source="{Binding Foto}" MaximumHeightRequest="130" MinimumHeightRequest="130" HorizontalOptions="Start"></Image>
-        <HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="5">
             <Label Text="Fecha de nacimiento: " FontSize="20"></Label>
             <Label Text="{Binding FechaNacimiento}" FontSize="20"></Label>
         </HorizontalStackLayout>

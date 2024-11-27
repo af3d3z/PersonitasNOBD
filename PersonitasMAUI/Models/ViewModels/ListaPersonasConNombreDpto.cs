@@ -20,6 +20,7 @@ namespace PersonitasMAUI.Models.ViewModels
         private DelegateCommand? _btnEliminarCommand;
         private DelegateCommand? _btnAgregarCommand;
         private DelegateCommand? _btnDetallesCommand;
+        private DelegateCommand? _btnEditCommand;
         private PersonaConNombreDepartamento _personaSeleccionada = new PersonaConNombreDepartamento();
         private ObservableCollection<PersonaConNombreDepartamento> _listadoPersonasNombreDepartamento = new ObservableCollection<PersonaConNombreDepartamento>();
         #endregion
@@ -33,7 +34,7 @@ namespace PersonitasMAUI.Models.ViewModels
         }
         public DelegateCommand BtnDetallesCommand {get{ return _btnDetallesCommand; } }
         public DelegateCommand BtnEliminarCommand { get { return _btnEliminarCommand; } }
-        
+        public DelegateCommand BtnEditarCommand { get { return _btnEditCommand; } }
         public DelegateCommand BtnAgregarCommand { get { return _btnAgregarCommand; } }
 
         public PersonaConNombreDepartamento PersonaSeleccionada
@@ -42,6 +43,8 @@ namespace PersonitasMAUI.Models.ViewModels
             set {
                 _personaSeleccionada = value;
                 _btnEliminarCommand?.RaiseCanExecuteChanged();
+                _btnDetallesCommand?.RaiseCanExecuteChanged();
+                _btnEditCommand?.RaiseCanExecuteChanged();
                 NotifyPropertyChanged("PersonaSeleccionada");
             }
         }
@@ -59,7 +62,8 @@ namespace PersonitasMAUI.Models.ViewModels
 
             this._btnEliminarCommand = new DelegateCommand(btnEliminarCommand_Execute, btnEliminarCommand_CanExecute);
             this._btnAgregarCommand = new DelegateCommand(btnAgregarCommand_Execute);
-            this._btnDetallesCommand = new DelegateCommand(btnDetallesCommand_Execute);
+            this._btnDetallesCommand = new DelegateCommand(btnDetallesCommand_Execute, btnDetallesCommand_CanExecute);
+            this._btnEditCommand = new DelegateCommand(btnEditarCommand_Execute, btnEditCommand_CanExecute);
         }
 
         public void ActualizarLista() {
@@ -92,6 +96,27 @@ namespace PersonitasMAUI.Models.ViewModels
             return canExecute;
         }
 
+        private bool btnDetallesCommand_CanExecute() {
+            bool canExecute = false;
+            if (_personaSeleccionada != null) {
+                canExecute = true;
+            }
+
+            return canExecute;
+        }
+
+        /// <summary>
+        /// Verifica si se puede ejecutar o no el btn
+        /// </summary>
+        /// <returns></returns>
+        private bool btnEditCommand_CanExecute() {
+            bool canExecute = false;
+            if (_personaSeleccionada != null) {
+                canExecute = true;
+            }
+            return canExecute;
+        }
+
         /// <summary>
         /// Elimina del listado la persona seleccionada
         /// </summary>
@@ -104,6 +129,10 @@ namespace PersonitasMAUI.Models.ViewModels
         /// </summary>
         private async void btnDetallesCommand_Execute() {
             await Application.Current.MainPage.Navigation.PushAsync(new Detalles(_personaSeleccionada.Id));
+        }
+
+        private async void btnEditarCommand_Execute() {
+            await Application.Current.MainPage.Navigation.PushAsync(new Editar(_personaSeleccionada));
         }
 
         /// <summary>
