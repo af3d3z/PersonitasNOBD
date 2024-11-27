@@ -1,5 +1,4 @@
 ﻿using BL;
-using DAL;
 using ENT;
 using PersonitasMAUI.Models.Utilidades;
 using PersonitasMAUI.Views;
@@ -132,7 +131,11 @@ namespace PersonitasMAUI.Models.ViewModels
         }
 
         private async void btnEditarCommand_Execute() {
-            await Application.Current.MainPage.Navigation.PushAsync(new Editar(_personaSeleccionada));
+            Persona persona = BL.ManejadoraPersonaBL.GetPersonaBL(_personaSeleccionada.Id);
+            if (persona != null)
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new Editar(persona));
+            }
         }
 
         /// <summary>

@@ -41,15 +41,11 @@ namespace DAL
         /// <param name="persona"></param>
         public static bool EditarPersona(Persona persona) {
             List<Persona> listadoPersonas = Listados.ListaPersonas;
-            int contador = 0;
             bool encontrado = false;
-            while (contador < listadoPersonas.Count && !encontrado) {
-                if (listadoPersonas[contador].Id == persona.Id)
-                {
-                    encontrado = true;
-                    listadoPersonas[contador] = persona;
-                }
-                contador++;
+            int index = listadoPersonas.FindIndex(per => per.Id == persona.Id);
+            if (index != -1) { 
+                listadoPersonas[index] = persona;
+                encontrado = true;
             }
 
             return encontrado;

@@ -20,12 +20,16 @@
             <Label Text="Fecha de nacimiento:" VerticalOptions="Center"></Label>
             <Entry Text="{Binding FechaNacimiento}" MinimumWidthRequest="70" VerticalOptions="Center"></Entry>
         </HorizontalStackLayout>
-        <ListView ItemsSource="{Binding ListaDepartamentos}">
+        <ListView ItemsSource="{Binding Departamentos}" SelectedItem="{Binding DepartamentoSeleccionado}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding NombreDepartamento}"></TextCell>
+                    <TextCell Text="{Binding Nombre}"></TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <HorizontalStackLayout>
+            <Button Command="{Binding BtnVolver}" BackgroundColor="Blue" ImageSource="arrow_left.png"></Button>
+            <Button Command="{Binding BtnGuardar}" BackgroundColor="Green" ImageSource="edit.png"></Button>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

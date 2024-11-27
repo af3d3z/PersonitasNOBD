@@ -1,5 +1,4 @@
-﻿using DAL;
-using ENT;
+﻿using ENT;
 using PersonitasMAUI.Models.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -36,7 +35,7 @@ namespace PersonitasMAUI.Models.ViewModels
         #region commands
         private async void btnAgregarCommand_Execute() {
             Persona personaAgregador = new Persona(BL.ListadosBL.GetNumeroPersonas()+1, this.Nombre, this.Apellidos, this.Foto, this.FechaNacimiento, this._departamentoSeleccionado.ID);
-            ManejadoraPersona.AgregarPersona(personaAgregador);
+            BL.ManejadoraPersonaBL.AgregarPersonaBL(personaAgregador);
             this.Nombre = string.Empty;
             this.Apellidos = string.Empty;
             this.Foto = string.Empty;
